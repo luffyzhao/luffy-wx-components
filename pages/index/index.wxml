@@ -1,0 +1,4 @@
+<!--index.wxml-->
+<view class="container">
+  <viewd width="{{760}}" height="{{700}}" urls="{{ images }}" imageWidth="{{500}}" imageHeight="{{233}}"></viewd>
+</view>
