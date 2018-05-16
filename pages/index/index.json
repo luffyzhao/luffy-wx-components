@@ -1,5 +1,5 @@
 {
   "usingComponents": {
-    "viewd": "/components/3dView/index"
+    "viewd": "/components/wxml3dView/index"
   }
 }

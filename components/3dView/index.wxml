@@ -1,2 +1,0 @@
-<!--components/3dView/index.wxml-->
-<canvas style="width: {{width}}px; height: {{height}}px;" canvas-id="{{id}}" disable-scroll="{{true}}" binderror="canvasErrorCallback" bindtouchstart="canvasBindtouchstart" bindtouchmove="canvasBindtouchmove" bindtouchend="canvasBindtouchend" bindtouchcancel="canvasBindtouchend"></canvas>
