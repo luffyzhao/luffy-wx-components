@@ -6,11 +6,11 @@ Component({
   properties: {
     width: {
       type: Number,
-      default: 500
+      default: 0
     },
     height: {
       type: Number,
-      default: 500
+      default: 0
     },
     urls: {
       type: Array,
@@ -40,7 +40,10 @@ Component({
     touche: {},
     frame: 0,
     dx: 0,
-    dy: 0
+    dy: 0,
+    oldTouche:{
+      pageX: 0
+    }
   },
 
   /**
@@ -60,16 +63,22 @@ Component({
       this.setData({
         touche: e.touches[0]
       })
+
+      this.setData({
+        oldTouche: e.touches[0]
+      })
     },
     /**
      * 手指触摸后移动
      */
     viewBindtouchmove(e) {
-      var count = Math.floor(Math.abs((this.data.touche.pageX - e.touches[0].pageX) / 30))
-      var frameIndex = Math.floor((this.data.touche.pageX - e.touches[0].pageX) / 30);
+
+      var count = Math.ceil(Math.abs((this.data.touche.pageX - e.touches[0].pageX) / 72))
+      var frameIndex = Math.floor((this.data.oldTouche.pageX - e.touches[0].pageX));
+      
       while (count > 0) {
         count--;
-        if (frameIndex > 0) {
+        if (frameIndex >= 0) {
           frameIndex--;
           this.setData({
             frame: this.data.frame + 1
@@ -90,6 +99,10 @@ Component({
         if (this.data.frame < 0) {
           this.data.frame = this.data.urls.length - 1;
         }
+
+        this.setData({
+          oldTouche: e.touches[0]
+        })
       }
     },
     /**

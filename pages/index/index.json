@@ -1,5 +1,6 @@
 {
   "usingComponents": {
     "viewd": "/components/wxml3dView/index"
-  }
+  },
+  "enablePullDownRefresh": false
 }
